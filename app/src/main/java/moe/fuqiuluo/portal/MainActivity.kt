@@ -245,8 +245,8 @@ class MainActivity : AppCompatActivity() {
             mNotification = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val notificationUtils = NotificationUtils(this@MainActivity)
                 val builder = notificationUtils.getAndroidChannelNotification(
-                    "Portal后台定位服务",
-                    "正在后台定位"
+                    "♿ 后台服务",
+                    "正在后台运行"
                 )
                 builder.build()
             } else {
@@ -258,9 +258,9 @@ class MainActivity : AppCompatActivity() {
                 builder.setContentIntent(PendingIntent.getActivity(
                     this@MainActivity, 0, nfIntent, PendingIntent.FLAG_IMMUTABLE
                 ))
-                    .setContentTitle("Portal后台定位服务")
+                    .setContentTitle("♿ 后台服务")
                     .setSmallIcon(R.mipmap.ic_launcher)
-                    .setContentText("正在后台定位")
+                    .setContentText("正在后台运行")
                     .setWhen(System.currentTimeMillis())
 
                 builder.build()

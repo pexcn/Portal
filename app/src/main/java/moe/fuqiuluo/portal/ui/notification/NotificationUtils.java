@@ -14,8 +14,8 @@ import androidx.annotation.RequiresApi;
 public class NotificationUtils extends ContextWrapper {
 
     private NotificationManager mManager;
-    public static final String ANDROID_CHANNEL_ID = "moe.fuqiuluo.portal";
-    public static final String ANDROID_CHANNEL_NAME = "Portal Location";
+    public static final String ANDROID_CHANNEL_ID = "uk.ovvo.portal";
+    public static final String ANDROID_CHANNEL_NAME = "Ovvo Portal";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public NotificationUtils(Context base) {
