@@ -29,19 +29,6 @@ The purpose of this application is to help developers debug the simulation tool 
 - 若有企业/组织/个人因为**Portal**导致出现任何损失，业务中断，**Portal**将最大程度协助您的调查。
 - **Portal**开发者保留对**Portal**的最终解释权。
 
-## How to detect **Portal**?
-
-- **Portal** will create a notification when it is running, and you can check the notification to see if **Portal** is running.
-- **Portal** will add extra to the `Location`, you can check it to see if **Portal** is running.
-
-```kotlin
-if (location.extras == null) {
-    location.extras = Bundle()
-}
-location.extras?.putBoolean("portal.enable", true)
-location.extras?.putBoolean("is_mock", true)
-```
-
 # Features
 
 - [x] **Portal** will create a notification when it is running.
