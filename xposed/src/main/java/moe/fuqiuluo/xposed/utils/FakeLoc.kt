@@ -79,9 +79,9 @@ object FakeLoc {
     var lastLocation: Location? = null
     var latitude = 0.0
     var longitude = 0.0
-    var altitude = 80.0
+    var altitude = 13.0
 
-    var speed = 3.05
+    var speed = 1.5
 
     var speedAmplitude = 1.0
     var hasBearings = false
@@ -101,7 +101,7 @@ object FakeLoc {
             field = value
         }
 
-    var accuracy = 25.0f
+    var accuracy = 15.0f
         set(value) {
             field = if (value < 0) {
                 -value

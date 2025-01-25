@@ -52,7 +52,7 @@ abstract class BaseLocationHook: BaseDivineService() {
         }
 
         if (location.altitude == 0.0) {
-            location.altitude = 80.0
+            location.altitude = 15.0
         }
 
         location.time = originLocation.time
