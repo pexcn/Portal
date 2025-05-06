@@ -70,7 +70,7 @@ class FakeLocation: IXposedHookLoadPackage, IXposedHookZygoteInit {
         if(System.getProperty("portal.injected_${lpparam.packageName}") == "true") {
             return
         } else {
-            System.setProperty("portal.injected_${lpparam.packageName}", "true")
+            return
         }
 
         when (lpparam.packageName) {
