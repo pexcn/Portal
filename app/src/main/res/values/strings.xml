@@ -62,7 +62,7 @@
     <string name="cdma">网络降级</string>
     <string name="cdma_desc">将网络降级为CDMA</string>
     <string name="hook_sensor">传感器劫持</string>
-    <string name="hook_sensor_desc">模拟步频（待完善）</string>
+    <string name="hook_sensor_desc">模拟步频{待完善)</string>
     <string name="show_route">显示路线</string>
     <string name="item_report_duration_title">位置上报间隔</string>
     <string name="item_report_duration_desc">上报位置的频率单位毫秒(ms)</string>
