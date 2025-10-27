@@ -67,12 +67,6 @@ class FakeLocation: IXposedHookLoadPackage, IXposedHookZygoteInit {
             return
         }
 
-        if(System.getProperty("portal.injected_${lpparam.packageName}") == "true") {
-            return
-        } else {
-            System.setProperty("portal.injected_${lpparam.packageName}", "true")
-        }
-
         when (lpparam.packageName) {
             "com.android.phone" -> {
                 Logger.info("Found com.android.phone")
