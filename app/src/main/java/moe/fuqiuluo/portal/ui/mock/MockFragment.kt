@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.tencent.bugly.crashreport.CrashReport
+import java.lang.ref.WeakReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -44,7 +45,25 @@ class MockFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val mockViewModel by lazy { ViewModelProvider(this)[MockViewModel::class.java] }
-    private val mockServiceViewModel by activityViewModels<MockServiceViewModel>()
+    internal val mockServiceViewModel by activityViewModels<MockServiceViewModel>()
+
+    companion object {
+        private var weakInstance: WeakReference<MockFragment>? = null
+        fun getInstance(): MockFragment? = weakInstance?.get()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        weakInstance = WeakReference(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (weakInstance?.get() == this) {
+            weakInstance?.clear()
+            weakInstance = null
+        }
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -212,7 +231,7 @@ class MockFragment : Fragment() {
         return binding.root
     }
 
-    private fun tryOpenService(button: MaterialButton) {
+    internal fun tryOpenService(button: MaterialButton) {
         if (!OverlayUtils.hasOverlayPermissions(requireContext())) {
             showToast("请授权悬浮窗权限")
             return
@@ -270,7 +289,7 @@ class MockFragment : Fragment() {
 
     }
 
-    private fun tryCloseService(button: MaterialButton) {
+    internal fun tryCloseService(button: MaterialButton) {
         if (mockServiceViewModel.locationManager == null) {
             showToast("定位服务加载异常")
             return
